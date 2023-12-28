@@ -8,7 +8,11 @@ import dotenv from "dotenv";
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://recipe-app-h06o.onrender.com"],
+  })
+);
 
 app.use("/auth", userRouter);
 app.use("/recipes", recipesRouter);
